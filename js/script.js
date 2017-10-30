@@ -1,39 +1,24 @@
 // jQuery fun times! 
 $("document").ready(function() {
-	$("#textbox").on("mousemove", onMouseOver);
-	$("#textbox").on("click", onMouseClick);
-	$("#textbox").on("mouseleave", onMouseLeave);	
-	var newP = $("<p>"); // creates new variable with html tag
-	newP.append("<em>Hello, world!</em"); // new content goes into html tag
 });
-
-function onMouseOver(evt) {
-	$("#textbox").text("I just got here.");
-}
-
-function onMouseClick(evt) {
-	$("#textbox").text("You clicked me.");
-}
-
-function onMouseLeave(evt) {
-	$("#textbox").text("I'm leaving now.");
-}
-
-//ANIMATION
-$("document").ready(function () {
-	$("#start").click(function() {
-		$("#animayshun").animate({width: 500}, 400) //last number is time in miliseconds
-		.animate({height: 500}, 500)
-		.animate({left: 500}, 700)
-		.animate({top: "+=100"}, "slow") //"slow" = about 600 miliseconds
-	});
-// reset animation to starting point:
-	$("#reset").click(function() {
-		$("#animayshun").css("top", "0");
-		$("#animayshun").css("left", "0");
-		$("#animayshun").css("width", "300");
-		$("#animayshun").css("height", "300");
-	});
+// rolling over orange box reveals message
+$("#textbox").mousemove(function(){
+	$("#textbox").html("<h2>I am but a humble orange box.</h2>");
+	$("#textbox").css("backgroundColor", "orange");
 });
-
+// clicking on the orange box changes its color, size, and initiates an animation sequence
+$("#animayshun").click(function() {
+	$("#textbox").html("<h2></h2>");
+	$("#animayshun").html("<h2>Oh, you clicked me!</h2>");
+	$("#animayshun").css("backgroundColor", "blue");
+	$("#textbox").css("backgroundColor", "blue");
+	$("#animayshun").animate({width: 800}, 400)
+	.animate({left: 500}, 700)
+	.animate({height: 800}, 600);	
+	$("#animayshun").animate({width: 250}, 400)
+	.animate({left: 0}, 700)
+	.animate({height: 250}, 600);
+	var blankSpace = $("#button");
+	$("h1").html(blankSpace);
+});
 
